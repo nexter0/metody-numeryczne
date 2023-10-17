@@ -2,7 +2,7 @@ clear;
 clc;
 
 //Dane wejściowe
-n = 2
+n = 3
 a = -0.5
 b = 2*%pi
 xv = [0; %pi/4; %pi/2; 3*%pi/2]
@@ -13,7 +13,7 @@ function y = f(x)
 endfunction
 //***
 
-for i = 0:(n + 1)
+for i = 0:n
     yv(i + 1) = f(xv(i + 1))
 end
 
