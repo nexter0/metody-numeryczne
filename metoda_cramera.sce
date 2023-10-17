@@ -27,10 +27,8 @@ ME = msum(M, E)
 detME = wz2(ME)
 
 if detME <> 0 then
-    ME1 = cmk(ME, b, 1)
-    ME2 = cmk(ME, b, 2)
-    detME1 = wz2(ME1)
-    detME2 = wz2(ME2)
+    detME1 = wz2(cmk(ME, b, 1))
+    detME2 = wz2(cmk(ME, b, 2))
     x1 = detME1 / detME
     x2 = detME2 / detME
     x = [x1; x2]
@@ -38,4 +36,3 @@ if detME <> 0 then
 else    
     disp("Wyznacznik zerowy")
 end
-
