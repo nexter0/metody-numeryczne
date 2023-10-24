@@ -11,6 +11,7 @@ r = 2
 function y = f(x)
     y = sin(x)
 endfunction
+ls = 100
 //***
 
 // wartosc n+1 (czwartej) pochodnej
@@ -45,9 +46,14 @@ function y = fi(x, j, n)
     y = prod(v) / prod(v2)
 endfunction
 
-function y = nfac(n)
-    y = factorial(n + 1)
-endfunction
+supr_xv = linspace(a, b, ls)'
+for i = 1:ls
+    supr_yv(i) = abs(fp(supr_xv(i)))
+end
+// supr_yv = abs(fp(supr_xv))
+M = max(supr_yv)
+
+err = M * abs(omega(xb, xv, n)) / factorial(n+1)
 
 for i = 0:n
     yv(i + 1) = f(xv(i + 1))
