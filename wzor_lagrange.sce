@@ -30,18 +30,23 @@ function y = fi(x, j, n)
         if i <> j then
             v(i + 1) = x - xv(i + 1)
         end
+        // zamiast warunku mozna dac:
+        // v(j + 1) = 1
     end
     
         for i = 0:n
             if i <> j then
-                v2(i + 1) = xv(j) - xv(i + 1)
+                v2(i + 1) = xv(j + 1) - xv(i + 1)
             end
+            // zamiast warunku mozna dac:
+            // v(j + 1) = 1
     end
-  
-    licznik = prod(v)
-    mianownik = prod(v2)
     
-    y = licznik / mianownik
+    y = prod(v) / prod(v2)
+endfunction
+
+function y = nfac(n)
+    y = factorial(n + 1)
 endfunction
 
 for i = 0:n
