@@ -49,13 +49,20 @@ for i = 0:n
     ilorazy(i + 1, 1) = yv(i + 1)
 end
 
-if h <> 0 then
+if h == 0 then
     // ilorazy różnicowe
     for k = 1:n
         for i = 0:(n-k)
             ilorazy(i + 1, k + 1) = (ilorazy(i + 2, k) - ilorazy(i + 1, k)) / (xv(i + k+1) - xv(i+1))
         end
+    end
+    
+    s = yv(1)
+    
+    for i = 1:n
+        /*...dokonczyc...*/ * omega(x_, xv, i - 1)
     end 
+    
 else
     // różnice progresywne
         for k = 1:n
@@ -63,8 +70,9 @@ else
             ilorazy(i + 1, k + 1) = (ilorazy(i + 2, k) - ilorazy(i + 1, k))
         end
     end 
+    
+    /*...dokonczyc...*/ 
+    
 end
 
 
-
-disp(ilorazy)
