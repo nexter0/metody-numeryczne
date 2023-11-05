@@ -61,7 +61,12 @@ for i = 0:n
 end
 
 if err < 10^(-r) then
-    // Wzor interpolacyjny Lagrangea
+    // Wzor interpolacyjny Lagranża
+ for i=0:n;
+        t(i+1) = yv(i+1) * fi(xb, i, n)
+    end;
+    Wn =sum(t);
+    disp(Wn)
 else
     disp("Blad zbyt duzy", err)
 end
