@@ -1,7 +1,7 @@
 clear;
 clc;
 
-
+/*
 n = 7
 x_ = %pi/2
 xv = [1, 2, 3, 4, 5, 6, 7, 8]
@@ -9,9 +9,9 @@ xv = [1, 2, 3, 4, 5, 6, 7, 8]
 function y = f(x)
     y = sin(x)
 endfunction
+*/
 
 
-/*
 n = 5
 x_ = 0
 xv = [-3, -2, -1, 1, 2, 3]
@@ -19,7 +19,7 @@ xv = [-3, -2, -1, 1, 2, 3]
 function y = f(x)
     y = %e^x
 endfunction
-*/
+
 
 for i = 0:n
     yv(i + 1) = f(xv(i + 1))
@@ -59,9 +59,12 @@ if h == 0 then
     
     s = yv(1)
     
+    Wnw(1) = ilorazy(1, 1)
     for i = 1:n
-        /*...dokonczyc...*/ * omega(x_, xv, i - 1)
+        Wnw(i + 1) = ilorazy(1 , i+1) * omega(x_, xv, i - 1)
     end 
+    Wn = sum(Wnw)
+    disp("Wn =", Wn)
     
 else
     // różnice progresywne
@@ -70,9 +73,10 @@ else
             ilorazy(i + 1, k + 1) = (ilorazy(i + 2, k) - ilorazy(i + 1, k))
         end
     end 
-    
-    /*...dokonczyc...*/ 
-    
+    Wnw(1) = ilorazy(1, 1)
+    for i = 1:n
+        Wnw(i + 1) = (ilorazy(1 , i+1) * omega(x_, xv, i - 1) / (factorial(i) * h ^ i))
+    end 
+    Wn = sum(Wnw)
+    disp("Wn =", Wn)
 end
-
-
