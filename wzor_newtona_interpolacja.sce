@@ -63,9 +63,6 @@ if h == 0 then
     for i = 1:n
         Wnw(i + 1) = ilorazy(1 , i+1) * omega(x_, xv, i - 1)
     end 
-    Wn = sum(Wnw)
-    disp("Wn =", Wn)
-    
 else
     // różnice progresywne
         for k = 1:n
@@ -77,6 +74,6 @@ else
     for i = 1:n
         Wnw(i + 1) = (ilorazy(1 , i+1) * omega(x_, xv, i - 1) / (factorial(i) * h ^ i))
     end 
-    Wn = sum(Wnw)
-    disp("Wn =", Wn)
 end
+Wn = sum(Wnw)
+disp("Wn =", Wn)
