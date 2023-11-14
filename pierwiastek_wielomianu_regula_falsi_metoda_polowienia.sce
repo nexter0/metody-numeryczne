@@ -51,8 +51,9 @@ if f(a) * f(b) < 0 then
             c = b
             x(wi) = a
         end
-    
+        excd = 1
         while wi < n
+            wi = wi + 1
             x(wi) = x(wi - 1) - f(x(wi - 1)) * (c - x(wi-1)) / (f(c) - f(x(wi - 1)))
             if abs(x(wi) - x(wi - 1))<10^(-r) then
                 excd = 2
