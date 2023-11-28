@@ -63,4 +63,13 @@ if f(a) * f(b) < 0 then
     end
 end
 
-disp(x)
+select excd
+    case 1 then
+        disp("Osiagnieto maksymalna liczbe iteracji: " + string(n))
+    case 2 then
+        disp("Osiagnieto dokladnosc rzedu: " + string(10^(-r)))
+        disp("x("+string(wi)+")="+string(x(wi)))
+    case 3 then
+        disp("Niespelnione zalozenia metody polowienia")
+
+end
