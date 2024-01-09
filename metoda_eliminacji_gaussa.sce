@@ -1,12 +1,18 @@
 clc
 clear
 
-X = [2 1 -1 5
+/* = [2 1 -1 5
      3 -2 2 -3
      5 5 -1 2
      2 -1 1 -3]
  
-y = [1; 2; -1; 4]
+y = [1; 2; -1; 4]*/
+
+X = [0 1 1
+ 1 2 1
+ 1 1 3]
+ 
+y = [1; 2; -1]
  
 sizeA = size(X)
 sizeB = size(y)
@@ -45,8 +51,8 @@ if sizeA(1) == sizeA(2) && sizeA(2) == sizeB(1) then
          for i = k:n
             for j = k:n
                 if A(k-1, k-1, k-1) == 0 then
-                    disp("Dzielenie przez 0")
-                    break
+                    disp("Dzielenie przez 0. Etap eliminacji nie powiodl sie.")
+                    abort
                 end
                 A(i, j, k) = A(i, j, k-1) - A(k-1, j, k-1) * A(i, k-1, k-1) / A(k-1, k-1, k-1)
             end
@@ -54,8 +60,8 @@ if sizeA(1) == sizeA(2) && sizeA(2) == sizeB(1) then
          
          for i = k:n
             if A(k-1, k-1, k-1) == 0 then
-                disp("Dzielenie przez 0")
-                break
+                disp("Dzielenie przez 0. Etap eliminacji nie powiodl sie.")
+                abort
             end
                 b(i, 1, k) = b(i, 1, k-1) - b(k-1, 1, k-1) * A(i, k-1, k-1) / A(k-1, k-1, k-1)
          end         
