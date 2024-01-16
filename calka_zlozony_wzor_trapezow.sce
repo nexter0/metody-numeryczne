@@ -17,9 +17,6 @@ for n = 2:nmax
     
     for i=1:(n+1)
         x(i) = a + (i-1) * h
-    end
-    
-    for i=1:(n+1)
         y(i) = f(x(i))
     end
     
